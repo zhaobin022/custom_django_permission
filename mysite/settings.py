@@ -112,3 +112,8 @@ USE_TZ = True
 STATIC_URL = '/static/'
 AUTH_USER_MODEL = 'polls.UserProfile'
 LOGIN_URL = '/login/'
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': ('rest_framework.permissions.IsAdminUser',),
+    'PAGINATE_BY': 10
+}

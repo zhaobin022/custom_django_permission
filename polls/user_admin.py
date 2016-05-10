@@ -4,7 +4,7 @@ from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth.forms import ReadOnlyPasswordHashField
 
-from models import UserProfile
+from models import UserProfile,UserGroup
 
 
 class UserCreationForm(forms.ModelForm):
@@ -71,7 +71,7 @@ class UserProfileAdmin(UserAdmin):
     add_fieldsets = (
         (None, {
             'classes': ('wide',),
-            'fields': ('username','user_group', 'password1', 'password2')}
+            'fields': ('username', 'user_group','password1', 'password2')}
         ),
     )
     search_fields = ('username',)

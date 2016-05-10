@@ -32,11 +32,41 @@ class RestFulClient():
         return rsp
 
     def get_server(self):
-        pass
+        md5_token,timestamp = self.__get_token()
+        url_arg_str = "user=%s&timestamp=%s&token=%s" %(self.username,timestamp,md5_token)
+        new_url = self.url + 'servers/5/'
+        new_url += "?" + url_arg_str
+        rsp = requests.get(new_url,headers={
+            'Accept': 'application/json'
+        })
+        return rsp
 
     def update_server(self):
-        pass
+        json_data = dict(
+            server_name='aaaaaaaaaaaaaaaa',
+        )
+        md5_token,timestamp = self.__get_token()
+        url_arg_str = "user=%s&timestamp=%s&token=%s" %(self.username,timestamp,md5_token)
+        new_url = self.url + 'servers/5/'
+        new_url += "?" + url_arg_str
+        rsp = requests.get(new_url,headers={
+            'Accept': 'application/json'
+        })
+        return rsp
 
+    def create_server(self):
+        json_data = dict(
+            server_name='aaaaaaaaaaaaaaaa',
+            ip='1.1.1.1',
+        )
+        md5_token,timestamp = self.__get_token()
+        url_arg_str = "user=%s&timestamp=%s&token=%s" %(self.username,timestamp,md5_token)
+        new_url = self.url + 'servers/5/'
+        new_url += "?" + url_arg_str
+        rsp = requests.post(new_url,headers={
+            'Accept': 'application/json'
+        },data=json.dumps(json_data))
+        return rsp
     def delete_server(self):
         pass
 
