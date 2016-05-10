@@ -83,3 +83,15 @@ class UserGroup(models.Model):
     description = models.TextField()
     def __unicode__(self):
         return self.group_name
+
+
+
+class Server(models.Model):
+    server_name = models.CharField(max_length=64 , verbose_name=u'服务器名')
+    ip = models.GenericIPAddressField(verbose_name=u'地址')
+
+    def __unicode__(self):
+        return self.server_name
+    class Meta:
+        verbose_name = '服务器'
+        verbose_name_plural = "服务器"

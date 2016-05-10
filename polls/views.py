@@ -18,6 +18,8 @@ logger = logging.getLogger('web_apps')
 
 
 def login(request):
+    print request.POST
+    print request.GET
     if request.method == "POST":
         username = request.POST["username"]
         password = request.POST["password"]

@@ -16,9 +16,12 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 from polls import views as polls_view
+from polls import rest_urls
+
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^login/$',polls_view.login ),
     url(r'^logout/$',polls_view.logout ),
     url(r'^$',polls_view.index ),
+    url(r'^api/', include(rest_urls) ),
 ]
