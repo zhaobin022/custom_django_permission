@@ -13,6 +13,7 @@ import StringIO
 import SocketServer
 import logging
 logger = logging.getLogger('web_apps')
+import utils
 # Create your views here.
 
 
@@ -40,5 +41,7 @@ def logout(request):
     auth.logout(request)
     return HttpResponseRedirect('/login/')
 
+
+@utils.token_required
 def test(request):
     return render_to_response('index.html')

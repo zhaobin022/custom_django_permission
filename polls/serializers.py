@@ -9,7 +9,7 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
 
 
 
-class ServerSerializer(serializers.HyperlinkedModelSerializer):
+class ServerSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Server
-        fields = ('url', 'server_name','ip')
+       # fields = ('url', 'server_name','ip')
